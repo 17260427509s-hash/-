@@ -111,7 +111,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-svh items-center justify-center bg-court-950 text-white">
+    <main className="flex min-h-svh items-start justify-center overflow-x-hidden bg-court-950 text-white md:items-center">
       <section
         className="recording-stage relative isolate overflow-hidden shadow-[0_0_90px_rgba(0,0,0,0.65)]"
         onClick={() => {
@@ -120,10 +120,10 @@ export default function Home() {
         ref={stageRef}
       >
         <ArenaBackground isDrawing={isDrawing} />
-        <div className="relative z-10 flex h-full flex-col">
+        <div className="relative z-10 flex min-h-[inherit] flex-col">
           <AnimatePresence>
             {!isRecordingMode && (
-              <motion.header className="px-5 pt-8 text-center" data-html2canvas-ignore="true" exit={{ opacity: 0, y: -20 }} initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }}>
+              <motion.header className="px-4 pt-6 text-center sm:px-5 sm:pt-8" data-html2canvas-ignore="true" exit={{ opacity: 0, y: -20 }} initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }}>
                 <h1 className="text-[32px] font-black leading-tight text-white drop-shadow-[0_0_24px_rgba(248,201,91,0.32)]">今日羽毛球技术卡</h1>
                 <p className="mt-2 text-sm font-bold text-cyanfire/90">抽一张，决定今天练什么</p>
               </motion.header>
@@ -138,13 +138,13 @@ export default function Home() {
             )}
           </AnimatePresence>
 
-          <div className={`flex flex-1 items-center ${isRecordingMode ? "pb-12 pt-16" : "pb-4 pt-4"}`}>
+          <div className={`flex flex-1 items-center ${isRecordingMode ? "pb-12 pt-16" : "pb-4 pt-3 sm:pt-4"}`}>
             <TechniqueCardView card={currentCard} isDrawing={isDrawing} rollingTitle={rollingTitle} />
           </div>
 
           <AnimatePresence>
             {!isRecordingMode && (
-              <motion.div className="px-5 pb-6" data-html2canvas-ignore="true" exit={{ opacity: 0, y: 24 }} initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}>
+              <motion.div className="sticky bottom-0 z-20 mt-auto bg-gradient-to-t from-court-950 via-court-950/92 to-transparent px-4 pb-[calc(18px+env(safe-area-inset-bottom))] pt-4 sm:px-5" data-html2canvas-ignore="true" exit={{ opacity: 0, y: 24 }} initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}>
                 <ActionButton className="mb-3 w-full text-base" disabled={isDrawing} icon={hasDrawn ? <RefreshCw size={18} strokeWidth={3} /> : <Sparkles size={18} strokeWidth={3} />} onClick={drawCard} variant="primary">
                   {hasDrawn ? "重新抽一张" : "开始抽卡"}
                 </ActionButton>
