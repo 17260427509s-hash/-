@@ -21,6 +21,10 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  scroll-padding-bottom: calc(140px + env(safe-area-inset-bottom));
+}
+
 body {
   font-family: Arial, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
 }
@@ -31,14 +35,28 @@ select { font: inherit; }
 ::selection { background: rgba(248, 201, 91, 0.35); }
 
 .recording-stage {
-  width: min(100vw, 56.25svh);
-  height: min(100svh, 177.7778vw);
+  width: 100vw;
+  min-height: 100dvh;
+  height: auto;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 @media (min-width: 768px) {
   .recording-stage {
     width: min(540px, 56.25svh);
+    min-height: auto;
     height: min(960px, 100svh);
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .recording-stage {
+    min-height: 100dvh;
+  }
+
+  .recording-stage h1 {
+    font-size: clamp(30px, 9vw, 52px);
   }
 }
 
