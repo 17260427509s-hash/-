@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  background: #030711;
+}
+
+* { box-sizing: border-box; }
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+  background:
+    radial-gradient(circle at 50% -10%, rgba(53, 217, 255, 0.24), transparent 32%),
+    radial-gradient(circle at 50% 110%, rgba(248, 201, 91, 0.18), transparent 38%),
+    #030711;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: Arial, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+}
+
+button,
+select { font: inherit; }
+
+::selection { background: rgba(248, 201, 91, 0.35); }
+
+.recording-stage {
+  width: min(100vw, 56.25svh);
+  height: min(100svh, 177.7778vw);
+}
+
+@media (min-width: 768px) {
+  .recording-stage {
+    width: min(540px, 56.25svh);
+    height: min(960px, 100svh);
+  }
+}
+
+.glass-panel {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04)),
+    linear-gradient(180deg, rgba(8, 28, 60, 0.72), rgba(3, 7, 17, 0.86));
+  border: 1px solid rgba(255, 232, 163, 0.36);
+  backdrop-filter: blur(22px);
+}
+
+.button-glow {
+  box-shadow:
+    0 0 0 1px rgba(255, 232, 163, 0.24) inset,
+    0 0 24px rgba(248, 201, 91, 0.28),
+    0 12px 34px rgba(0, 0, 0, 0.36);
+}
+
+.text-balance { text-wrap: balance; }
+.perspective-card { perspective: 1200px; }
+.preserve-3d { transform-style: preserve-3d; }
+.hide-scrollbar { scrollbar-width: none; }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
